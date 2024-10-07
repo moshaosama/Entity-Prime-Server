@@ -12,12 +12,10 @@ app.use(cors());
 // Endpoints
 app.use("/todo", toDoRouter);
 
-// Export the app for Vercel
-module.exports = app;
+app.get("/", (req, res) => {
+  res.send("Welcome to the todo");
+});
 
-// Start server for local development
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log("Listening on port " + PORT);
-  });
-}
+app.listen(PORT, () => {
+  console.log("Listening on port " + PORT);
+});
